@@ -22,6 +22,7 @@ def display_intro():
 
 def main_menu():
     display_menu()
+    menu_selection = get_menu_selection()
 
 def display_menu():
     """
@@ -36,6 +37,22 @@ def display_menu():
     print('(3) How to Play')
     print('(4) Quit\n')
     
+def get_menu_selection():
+    """
+    Prompts the user to select a menu option.
+
+    Loops until the user selects a valid option.
+    
+    Returns the choice stored in the menu_selection variable.
+    """
+    valid = False
+    while not valid:
+        menu_selection = input('Enter menu option: ')
+        if menu_selection in ['1','2','3','4']:
+            valid = True
+        else:
+            print('That option is not valid. Please enter 1, 2, 3, or 4.\n')
+    return menu_selection
 
 if __name__ == '__main__':
     main()
