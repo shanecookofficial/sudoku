@@ -1,7 +1,7 @@
 def main():
 
     display_intro()
-    display_menu()
+    main_menu()
 
 def display_intro():
     """
@@ -20,6 +20,9 @@ def display_intro():
     print('█▄█ ░█░ ▄   ▄█ █▀█ █▀█ █░▀█ ██▄   █▄▄ █▄█ █▄█ █░█')
     print('\n')
 
+def main_menu():
+    display_menu()
+
 def display_menu():
     """
     Prints the main menu options in the terminal.
@@ -31,7 +34,7 @@ def display_menu():
     print('(1) New Game')
     print('(2) Load Game')
     print('(3) How to Play')
-    print('(4) Quit')
+    print('(4) Quit\n')
     
 
 if __name__ == '__main__':
