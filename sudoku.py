@@ -220,7 +220,7 @@ def has_unique_solution(board):
                 # If there is a blank cell, the board has multiple solutions
                 return False
     
-    # If there are no blank cells, the board has a unique solution
+    # If there are no blank cells, the board has a unique solution unless the difficulty was hard or extreme.
     return True
 
 def print_board(board):
