@@ -1,4 +1,5 @@
 import random
+import os
 
 def main():
 
@@ -119,6 +120,42 @@ def display_difficulties():
     print('(5) Extreme\n')
 
 def load_game():
+
+    if not check_saved_dir():
+        main_menu()
+    else:
+        #display_saved
+        #get_file
+        #load_board
+        pass
+
+def check_saved_dir():
+
+    cwd = os.path.abspath(os.getcwd())
+    if not os.path.isdir('saved_games'):
+        path = os.path.join(cwd,'saved_games')
+        os.mkdir(path)
+        print('It looks like there wasn\'t a folder for the saved games.\n\nA new folder was created to hold them named "saved_games".\n\nEnter option 1 in the main menu to start a new game.\n')
+        return False
+    elif len(os.listdir(os.path.join(cwd,'saved_games'))) == 0:
+        print('It looks like there weren\'t any saved games in your saved_games folder.\n\nEnter option 1 in the main menu prompt to start a new game.\n')
+        return False
+    elif not check_json(os.listdir(os.path.join(cwd,'saved_games'))):
+        print('It looks like there are not any json files in the saved_games folder.\n\nEnter option 1 in the main menu prompt to start a new game.\n')
+        return False
+    else:
+        return True
+    
+def check_json(directory):
+
+    for file in directory:
+        if len(file) >= 5:
+            if file[-5:] == '.json':
+                return True
+    return False
+
+def display_saved():
+
 
     pass
 
@@ -273,5 +310,3 @@ def print_board(board):
 
 """if __name__ == '__main__':
     main()"""
-
-get_difficulty()
