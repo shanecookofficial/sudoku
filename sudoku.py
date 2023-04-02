@@ -77,6 +77,14 @@ def new_game():
 
     pass
 
+def get_difficulty():
+
+    choice = ''
+
+    valid = False
+    while not valid:
+        choice = input('')
+
 def load_game():
 
     pass
@@ -154,12 +162,16 @@ def valid(board, num, pos):
 
 def remove_cells(board, difficulty):
     # Determine number of cells to remove based on difficulty
-    if difficulty == "easy":
-        num_cells = 40
+    if difficulty == "beginner":
+        num_cells = 34
+    elif difficulty == "easy":
+        num_cells = 45
     elif difficulty == "medium":
-        num_cells = 50
+        num_cells = 49
     elif difficulty == "hard":
-        num_cells = 60
+        num_cells = 53
+    elif difficulty == 'extreme':
+        num_cells = 64
     else:
         raise ValueError("Invalid difficulty level")
     
