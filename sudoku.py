@@ -71,5 +71,17 @@ def do_menu_selection(menu_selection):
     elif menu_selection == '4':
         exit()
 
+def new_game():
+
+    pass
+
+def load_game():
+
+    pass
+
+def how_to_play():
+
+    pass
+
 if __name__ == '__main__':
     main()
