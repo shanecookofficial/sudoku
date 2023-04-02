@@ -126,7 +126,7 @@ def load_game():
     else:
         saved_games_path = os.path.join(os.path.abspath(os.getcwd()),'saved_games')
         display_saved(saved_games_path)
-        #get_file
+        board_file = get_file(saved_games_path)
         #load_board
         pass
 
@@ -169,6 +169,19 @@ def display_saved(dir_path):
             if file[-5:] == '.json':
                 print(file)
     print()
+
+def get_file(dir_path):
+
+    directory = os.listdir(dir_path)
+    valid = False
+    while not valid:
+        file_name = input('Please enter a board filename: ')
+        if len(file_name) >= 5:
+            if file_name[-5:] == '.json':
+                if file_name in directory:
+                    return file_name
+        else:
+            print(f'\n{file_name} does not exist in this folder.\n')
 
 def how_to_play():
 
