@@ -74,8 +74,13 @@ def do_menu_selection(menu_selection):
         exit()
 
 def new_game():
-
-    pass
+    """
+    Performs new_game functions and then begins the game.
+    """
+    difficulty = get_difficulty()
+    board = generate_board()
+    remove_cells(board,difficulty)
+    #play_game
 
 def get_difficulty():
     """
