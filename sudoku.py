@@ -124,7 +124,8 @@ def load_game():
     if not check_saved_dir():
         main_menu()
     else:
-        #display_saved
+        saved_games_path = os.path.join(os.path.abspath(os.getcwd()),'saved_games')
+        display_saved(saved_games_path)
         #get_file
         #load_board
         pass
@@ -154,10 +155,20 @@ def check_json(directory):
                 return True
     return False
 
-def display_saved():
+def display_saved(dir_path):
 
+    
+    print('█▀▀ █ █░░ █▀▀ █▀')
+    print('█▀░ █ █▄▄ ██▄ ▄█')
+    print('▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄')
+    print('░░ ░░ ░░ ░░ ░░ ░░\n')
 
-    pass
+    directory = os.listdir(dir_path)
+    for file in directory:
+        if len(file) >= 5:
+            if file[-5:] == '.json':
+                print(file)
+    print()
 
 def how_to_play():
 
