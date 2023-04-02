@@ -1,5 +1,6 @@
 import random
 import os
+import json
 
 def main():
 
@@ -127,8 +128,7 @@ def load_game():
         saved_games_path = os.path.join(os.path.abspath(os.getcwd()),'saved_games')
         display_saved(saved_games_path)
         board_file = get_file(saved_games_path)
-        #load_board
-        pass
+        board = load_board(board_file)
 
 def check_saved_dir():
 
@@ -182,6 +182,13 @@ def get_file(dir_path):
                     return file_name
         else:
             print(f'\n{file_name} does not exist in this folder.\n')
+
+def load_board(dir_path):
+
+    with open(dir_path) as f:
+        data = json.load(f)
+        board = data['board']
+        return board
 
 def how_to_play():
 
