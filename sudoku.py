@@ -64,11 +64,9 @@ def do_menu_selection(menu_selection):
     Performs actions correlated to the menu option selected by the user.
     """
     if menu_selection == '1':
-        # UNDER CONSTRUCTION
-        pass
+        new_game()
     elif menu_selection == '2':
-        # UNDER CONSTRUCTION
-        pass
+        load_game()
     elif menu_selection == '3':
         # UNDER CONSTRUCTION
         pass
@@ -189,7 +187,64 @@ def load_board(dir_path):
         data = json.load(f)
         board = data['board']
         return board
+    
+def play_game(board):
 
+    pass
+
+def get_input():
+
+    choice = ''
+    valid = False
+    while not valid:
+        choice = input('> ')
+        choice_list = []
+        for i in choice:
+            choice_list.append(i)
+        if len(choice_list) == 1 and choice_list[0] == 'Q':
+            return choice
+        elif len(choice_list) == 2:
+            ints = 0
+            chars = 0
+            for i in choice_list:
+                try:
+                    i = int(i)
+                    if i >= 1 and i <= 9:
+                        ints += 1
+                except:
+                    try:
+                        i = str(i)
+                        i = i.upper()
+                        if i in ['A','B','C','D','E','F','G','H','I']:
+                            chars += 1
+                    except:
+                        pass
+            if ints == 1 and chars == 1:
+                return choice
+            else:
+                print(f'It looks like {choice} was an invalid cell, please try again.\n')
+        elif len(choice_list) == 3 and choice_list[0] == 'S':
+            choice_list.pop(0)
+            ints = 0
+            chars = 0
+            for i in choice_list:
+                try:
+                    i = int(i)
+                    if i >= 1 and i <= 9:
+                        ints += 1
+                except:
+                    try:
+                        i = str(i)
+                        i = i.upper()
+                        if i in ['A','B','C','D','E','F','G','H','I']:
+                            chars += 1
+                    except:
+                        pass
+            if ints == 1 and chars == 1:
+                return choice
+        else:
+            print('Invalid Input.')
+            
 def how_to_play():
 
     pass
@@ -341,3 +396,5 @@ def print_board(board):
 
 """if __name__ == '__main__':
     main()"""
+
+get_input()
