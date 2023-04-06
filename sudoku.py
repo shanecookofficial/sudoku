@@ -244,7 +244,24 @@ def get_input():
                 return choice
         else:
             print('Invalid Input.')
-            
+
+def do_input(input):
+
+    if input == 'Q':
+        valid = False
+        while not valid:
+            save = input('Do you want to save?(y/n): ')
+            if save.lower() == 'y' or save.lower() == 'n':
+                valid = True
+        save = save.lower()
+        if save == 'y':
+            # save the board
+            pass
+        elif save == 'n':
+            quit()
+
+    pass
+
 def how_to_play():
 
     pass
@@ -396,5 +413,3 @@ def print_board(board):
 
 """if __name__ == '__main__':
     main()"""
-
-get_input()
